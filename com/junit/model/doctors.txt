@@ -1,0 +1,5 @@
+1,Dr. Singh,Cardiology
+2,Dr. Patel,Neurology
+3,Dr. Reddy,Orthopedics
+4,Dr. Gupta,Oncology
+5,Dr. Kumar,Pediatrics
