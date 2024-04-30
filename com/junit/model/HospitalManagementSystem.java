@@ -85,7 +85,6 @@ public class HospitalManagementSystem {
         }
     }
     
-    private static List<Patient> patients1 = new ArrayList<>();
 
     // Other methods...
 
@@ -93,7 +92,7 @@ public class HospitalManagementSystem {
         return patients;
     }
 
-    private static void loadDoctors() {
+    public static void loadDoctors() {
         try (BufferedReader reader = new BufferedReader(new FileReader(DOCTORS_FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -108,8 +107,12 @@ public class HospitalManagementSystem {
             e.printStackTrace();
         }
     }
+    
+    public static List<Doctor> getDoctors() {
+        return doctors;
+    }
 
-    private static void loadAppointments() {
+    public static void loadAppointments() {
         try (BufferedReader reader = new BufferedReader(new FileReader(APPOINTMENTS_FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -123,6 +126,11 @@ public class HospitalManagementSystem {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public static List<Appointment> getAppointments()
+    {
+        return appointments;
     }
 
     public static void addPatient(Scanner scanner) {
@@ -217,7 +225,16 @@ public class HospitalManagementSystem {
             e.printStackTrace();
         }
     }
+    
+    public static void setPatients(List<Patient> patients)
+    {
+        HospitalManagementSystem.patients = patients;
+    }
 
+    public static void setAppointments(List<Appointment> appointments)
+    {
+        HospitalManagementSystem.appointments = appointments;
+    }
     public static void saveAppointments() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(APPOINTMENTS_FILE))) {
             for (Appointment appointment : appointments) {
