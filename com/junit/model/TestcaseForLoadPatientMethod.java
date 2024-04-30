@@ -2,6 +2,7 @@ package com.junit.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ class TestcaseForLoadPatientMethod {
 
 
 
+    // test case 1
     @Test
     void testCaseForLoadingPatients() {
         
@@ -23,8 +25,7 @@ class TestcaseForLoadPatientMethod {
         
         patients.add(new Patient(1, "Ujala", 22));
         patients.add(new Patient(141, "deepa", 37));
-        patients.add(new Patient(111, "khana", 34));
-        patients.add(new Patient(112, "deepu", 78));
+        patients.add(new Patient(15, "khana", 24));
         
         //when
         HospitalManagementSystem.loadPatients();
@@ -37,16 +38,19 @@ class TestcaseForLoadPatientMethod {
             assertEquals(patients.get(i).getAge(), HospitalManagementSystem.getPatients().get(i).getAge());
         }
     }
-    
-    private void writePatientsToFile(List<Patient> patients, String filename) {
-        try (PrintWriter writer = new PrintWriter(filename)) {
-            for (Patient patient : patients) {
-                writer.println(patient.getId() + "," + patient.getName() + "," + patient.getAge());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
         
-      
+     //   Test case 2 : to delete the file
+//        @Test
+//        void test() {
+//            
+//            File file = new File(PATIENTS_FILE);
+//            if(!file.delete())
+//            {
+//                System.out.println("failed to delete test file");
+//            }
+//            
+//            
+//        }
+    
+
 }
